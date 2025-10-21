@@ -10,4 +10,11 @@
     </parent>
     <groupId>com.dealermcp.lab.auto</groupId>
     <artifactId>dealer-mcp-lab-auto-common</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+    </dependencies>
 </project>
