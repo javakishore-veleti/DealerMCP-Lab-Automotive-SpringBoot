@@ -5,10 +5,10 @@ import com.dealer.mcp.lab.auto.common.mcp.McpToolRegistry;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.networknt.schema.JsonSchema;
-import lombok.Data;
 import com.networknt.schema.JsonSchemaFactory;
 import com.networknt.schema.SpecVersion;
 import com.networknt.schema.ValidationMessage;
+import lombok.Data;
 
 import java.util.Set;
 

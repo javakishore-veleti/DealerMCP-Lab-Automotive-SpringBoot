@@ -1,7 +1,10 @@
 package com.dealer.mcp.lab.auto.common.mcp;
 
 import lombok.Data;
-import java.util.*;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 @Data
 public class McpToolRegistry {
