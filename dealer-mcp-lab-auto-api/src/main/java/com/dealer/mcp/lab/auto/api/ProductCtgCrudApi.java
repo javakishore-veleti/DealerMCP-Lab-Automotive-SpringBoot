@@ -4,11 +4,13 @@ import com.dealer.mcp.lab.auto.common.dto.core.ProductCtgCrudReq;
 import com.dealer.mcp.lab.auto.common.dto.core.ProductCtgCrudResp;
 import com.dealer.mcp.lab.auto.common.entity.rdbms.ProductCtg;
 import com.dealer.mcp.lab.auto.common.svc.core.ProductCtgCrudSvc;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "/dealer-mcp/services/product-ctg/v1")
+@Tag(name = "Product Category", description = "CRUD operations for product categories")
 public class ProductCtgCrudApi extends AbstractAppCrudApi<ProductCtg, ProductCtgCrudReq, ProductCtgCrudResp, ProductCtgCrudSvc> {
 
     public ProductCtgCrudApi(ProductCtgCrudSvc crudSvc) {
