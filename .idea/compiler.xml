@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="dealer-mcp-lab-auto-core" />
+        <module name="dealer-mcp-lab-auto-common-svc" />
+        <module name="dealer-mcp-lab-auto-common-dao" />
+        <module name="dealer-mcp-lab-auto-common" />
+        <module name="dealer-mcp-lab-auto-api" />
+        <module name="dealer-mcp-lab-auto-mcp" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="dealer-mcp-lab-auto-api" options="-parameters" />
+      <module name="dealer-mcp-lab-auto-common" options="-parameters" />
+      <module name="dealer-mcp-lab-auto-common-dao" options="-parameters" />
+      <module name="dealer-mcp-lab-auto-common-svc" options="-parameters" />
+      <module name="dealer-mcp-lab-auto-core" options="-parameters" />
+      <module name="dealer-mcp-lab-auto-mcp" options="-parameters" />
+    </option>
+  </component>
+</project>
