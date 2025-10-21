@@ -2,6 +2,7 @@ package com.dealer.mcp.lab.auto.mcp.api;
 
 import com.dealer.mcp.lab.auto.common.mcp.McpTool;
 import com.dealer.mcp.lab.auto.common.svc.mcp.McpExecutor;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,6 +22,7 @@ public class McpServerController {
         return executor.getRegistry().listByContextType(contextType);
     }
 
+    @Operation(summary = "Execute MCP Tool", description = "Executes a registered MCP tool by name")
     @PostMapping("/execute/{tool}")
     public String execute(@PathVariable String tool, @RequestBody String json) throws Exception {
         return executor.execute(tool, json);
