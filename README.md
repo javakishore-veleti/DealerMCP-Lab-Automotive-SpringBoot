@@ -850,3 +850,103 @@ It’s literally DealerMCP Orchestration-as-a-Service, powered by n8n’s low-co
 | **109️⃣ Context Graph Visualizer**         | Display MCP entity relationships visually.           | **1.** `/execute/context.resolve` returns entity links.<br>**2.** Function node converts to graph JSON (nodes + edges).<br>**3.** Render in n8n dashboard or D3 webview.<br>**4.** Allow filtering by context type.          | Intuitive visualization of relationships inside MCP.       |         |
 | **110️⃣ MCP Health Check Flow**            | Monitor status of all MCP tools daily.               | **1.** Cron node fetches `/dealer-mcp/server/v1/tools` list.<br>**2.** Loop through each → `/execute/{tool}` with dummy input.<br>**3.** Record HTTP 200/500 counts.<br>**4.** Send summary to Slack/email.                  | Continuous MCP availability and reliability reporting.     |         |
 
+## DealerMCP + n8n System Architecture
+
+### High-Level Architecture Overview
+```shell
+flowchart TD
+
+    subgraph A["🧑‍💻 User / External System"]
+        N8N[n8n Workflow Engine]
+        Portal[Dealer Portal / API Client]
+    end
+
+    subgraph B["☁️ DealerMCP SaaS Platform"]
+        subgraph B1["API + MCP Layer"]
+            API[/dealer-mcp/server/v1/execute/{tool}/]
+            Tools[⚙️ MCP Tools Registry]
+            Context[McpContextResolveTool]
+            Discount[McpDiscountTool]
+            Feature[McpFeatureTool]
+            Catalog[McpCatalogAggregateTool]
+        end
+
+        subgraph B2["Service Layer"]
+            Svc[AppCrudSvc / Business Logic]
+            DAO[Common DAO Interfaces]
+            Cache[(Redis Cache)]
+        end
+
+        subgraph B3["Data Layer"]
+            DB[(PostgreSQL / H2 DB)]
+            MQ[(Kafka / Azure Event Hub / AWS Kinesis)]
+        end
+    end
+
+    subgraph C["☁️ Cloud Integrations"]
+        CloudS3[(AWS S3 / Azure Blob Storage)]
+        ES[(ElasticSearch / OpenSearch)]
+        BI[(Power BI / BigQuery / Snowflake)]
+        AI[🤖 OpenAI / LLM / ML APIs]
+    end
+
+    %% Data flows
+    N8N -->|HTTP POST JSON| API
+    Portal -->|REST / Webhooks| API
+    API --> Tools
+    Tools --> Svc
+    Svc --> DAO
+    DAO --> DB
+    Svc --> Cache
+    Svc --> MQ
+    Svc --> CloudS3
+    Svc --> ES
+    Svc --> BI
+    Tools -->|AI context| AI
+    MQ --> N8N
+
+    %% Monitoring
+    N8N -->|Status & Logs| BI
+    API -->|Health Metrics| BI
+
+```
+
+### Component Explanation
+
+| Layer                          | Description                                                                                                                                                | Technologies / Notes                                    |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
+| **n8n Workflow Engine**        | The **automation orchestrator**. Executes workflows that call DealerMCP REST endpoints such as `/execute/context.resolve` or `/execute/discount.evaluate`. | n8n nodes (HTTP, Function, Slack, DB, AI, etc.)         |
+| **Dealer Portal / API Client** | UI or system interface for dealers, admins, or customers.                                                                                                  | Angular / React frontends, Postman, mobile apps, etc.   |
+| **MCP Server Layer**           | Core **Model Context Protocol** implementation. Hosts all registered tools (`context.resolve`, `discount.evaluate`, etc.) and their schemas.               | Spring Boot multi-module (`dealer-mcp-lab-auto-mcp`)    |
+| **Service Layer**              | Business logic, CRUD operations, validation, caching, and messaging.                                                                                       | Java 17 / Spring Services / Redis / Kafka               |
+| **Data Layer**                 | Persistent storage and event streaming infrastructure.                                                                                                     | PostgreSQL, H2 (local), Kafka/Event Hub/Kinesis         |
+| **Cloud Integrations**         | External connectors for search, analytics, storage, and AI.                                                                                                | AWS S3 / Azure Blob / ElasticSearch / Power BI / OpenAI |
+| **Monitoring + Analytics**     | Tracks performance, tool execution metrics, audit logs, and business KPIs.                                                                                 | Micrometer, Prometheus, Power BI, or Grafana dashboards |
+
+
+### Data Flow Summary
+
+1. Trigger → n8n starts workflow (via Cron, webhook, or event). 
+2. Execution → n8n calls /dealer-mcp/server/v1/execute/{tool} endpoint. 
+3. Validation → DealerMCP validates input JSON against registered schema. 
+4. Processing → Relevant service executes business logic (CRUD, rules, AI inference). 
+5. Persistence → Results stored in PostgreSQL (and optionally cached in Redis). 
+6. Streaming → Kafka/EventHub pushes real-time events back to n8n or BI. 
+7. AI / Analytics → OpenAI and BI tools consume outputs for reports and predictions. 
+8. Feedback Loop → n8n continues workflow (notifications, dashboards, updates).
+
+### Example End-to-End Use Case Flow
+
+Use Case: Automated Product Discount Evaluation and Slack Notification
+
+```shell
+Cron (n8n) 
+   → /execute/context.resolve (DealerMCP)
+       → PostgreSQL lookup
+       → Redis cache check
+   → /execute/discount.evaluate
+       → Pricing rules + Discount Service
+       → Save results
+   → Slack Node → Notify sales team
+
+```
