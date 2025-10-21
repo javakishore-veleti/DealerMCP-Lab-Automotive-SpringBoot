@@ -16,7 +16,7 @@ import java.util.stream.StreamSupport;
 @Slf4j
 public class AbstractAppCrudSvcImpl<T extends AbstractCoreEntity, R extends AbstractCrudReq<T>, O extends AbstractCrudResp<T>, E extends AppCrudDao<T>>  implements AppCrudSvc<T, R, O> {
 
-    private E crudDao;
+    protected E crudDao;
 
     public AbstractAppCrudSvcImpl(E crudDao) {
         this.crudDao = crudDao;

@@ -291,3 +291,85 @@ DealerMCP-Lab-Automotive-SpringBoot/
 - Multi-agent ready (AI orchestration via MCP Server)
 - Portable to AWS / Azure / GCP 
 - Fully Dockerized and Kubernetes deployable
+
+```shell
+┌────────────────────────┐
+│ Client / AI Agent      │
+│ (HTTP POST /execute)   │
+└──────────┬─────────────┘
+           │
+           ▼
+┌────────────────────────┐
+│ McpServerController     │
+│ /dealer-mcp/server/v1   │
+└──────────┬─────────────┘
+           │
+           ▼
+┌────────────────────────┐
+│ McpExecutor             │
+│ (finds tool + validates)│
+└──────────┬─────────────┘
+           │
+           ▼
+┌────────────────────────┐
+│ McpContextResolveTool   │
+│  • Uses ProductContextService │
+│  • Builds unified context │
+└──────────┬─────────────┘
+           │
+           ▼
+┌────────────────────────┐
+│ ProductContextService   │
+│  • productDao           │
+│  • categoryDao          │
+│  • featureDao           │
+│  • discountDao          │
+└────────────────────────┘
+
+```
+
+## Example Use Cases
+
+| Use Case                             | How `McpContextResolveTool` Helps                                                                                                                 |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 🧾 **Product summary for dashboard** | Returns a single object containing all related product info.                                                                                      |
+| 💬 **AI assistant / chatbot**        | Lets the model query all relevant product data before responding.                                                                                 |
+| 🧩 **Workflow orchestration**        | A `workflow.compose` step can first call `context.resolve` to fetch context, then call other tools like `discount.evaluate` or `feature.extract`. |
+| 📊 **Analytics / Auditing**          | Provides “context snapshots” for data audits or lineage.                                                                                          |
+
+
+## Example Input & Output
+
+### Input
+```shell
+{
+"entityId": "P101"
+}
+```
+
+### Output
+```shell
+{
+  "id": "P101",
+  "name": "All-Season Tire",
+  "price": 129.99,
+  "category": "Tyres",
+  "features": [
+    {"code": "F01", "desc": "Radial Construction"},
+    {"code": "F02", "desc": "High Grip Rubber Compound"}
+  ],
+  "discounts": [
+    {"code": "D01", "percentage": 10.0}
+  ]
+}
+
+```
+
+## Comparison with Other MCP Tools
+
+| Tool                 | Scope                           | Output                      | Relationship to `context.resolve`                             |
+| -------------------- | ------------------------------- | --------------------------- | ------------------------------------------------------------- |
+| `feature.extract`    | Narrow (product → features)     | List of features            | `context.resolve` includes its output inside a bigger context |
+| `discount.evaluate`  | Narrow (product → discounts)    | Price & discount details    | `context.resolve` aggregates all of them                      |
+| `catalog.aggregate`  | Broad (all categories/products) | Large collection            | `context.resolve` focuses on one entity                       |
+| 🧠 `context.resolve` | Central contextual entry point  | Unified view (entity graph) | 🔺 Foundation for all contextual reasoning                    |

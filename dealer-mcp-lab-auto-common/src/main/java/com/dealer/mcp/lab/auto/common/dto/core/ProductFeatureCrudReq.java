@@ -7,4 +7,5 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class ProductFeatureCrudReq extends AbstractCrudReq<ProductFeature> {
+    private String productId;
 }

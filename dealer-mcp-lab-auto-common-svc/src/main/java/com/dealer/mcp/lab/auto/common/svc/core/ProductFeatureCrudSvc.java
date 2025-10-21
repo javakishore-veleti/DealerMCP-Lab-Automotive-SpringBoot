@@ -6,4 +6,6 @@ import com.dealer.mcp.lab.auto.common.entity.rdbms.ProductFeature;
 import com.dealer.mcp.lab.auto.common.svc.AppCrudSvc;
 
 public interface ProductFeatureCrudSvc extends AppCrudSvc<ProductFeature, ProductFeatureCrudReq, ProductFeatureCrudResp> {
+
+    void getFeaturesByProductId(ProductFeatureCrudReq req, ProductFeatureCrudResp resp);
 }

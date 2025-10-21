@@ -4,7 +4,15 @@ server:
 spring:
   application:
     name: DealerMCP-Lab-Automotive-MCP
+  cache:
+    type: redis
 
 logging:
   level:
     root: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,info
