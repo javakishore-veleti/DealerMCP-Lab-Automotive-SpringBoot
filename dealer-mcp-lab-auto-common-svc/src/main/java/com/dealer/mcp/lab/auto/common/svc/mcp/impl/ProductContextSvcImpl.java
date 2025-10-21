@@ -32,7 +32,7 @@ public class ProductContextSvcImpl implements ProductContextSvc {
      * Cached by product ID for fast reuse.
      */
     @Override
-    @Cacheable("productContext")
+    @Cacheable(value = "productContext", key = "#productId", unless = "#result == null")
     public ObjectNode buildProductContext(String productId) {
         ObjectNode node = mapper.createObjectNode();
 
