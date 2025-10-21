@@ -413,6 +413,167 @@ It’s literally DealerMCP Orchestration-as-a-Service, powered by n8n’s low-co
 | **9**  | Auto-generate product PDFs                      | `context.resolve`                       | *Webhook trigger* → *HTTP node* → *HTML/PDF node* → *Email node*.                                                     |
 | **10** | Sync products between dealers                   | all tools                               | *Webhook trigger* → *HTTP nodes* calling MCP → *HTTP node* to partner API.                                            |
 
+### DealerMCP + n8n Use Case Category Summary
+
+| **Category**                                | **Focus Area**                                                                      | **Representative Use Cases**                                                                                                                                                                                                                                                       | **Total** |
+| ------------------------------------------- | ----------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| 🧩 **Data Integration / DataOps**           | Data ingestion, synchronization, normalization, exports, and pipelines.             | 1️⃣ Contextual Product Enrichment<br>4️⃣ Product Analytics Pipeline<br>12️⃣ Vendor Feed Integration<br>25️⃣ Bulk Context Exporter<br>50️⃣ Data Backup and Sync<br>59️⃣ Product Metadata Normalizer<br>65️⃣ Cloud Migration Sync<br>66️⃣ ElasticSearch Indexer                      | **15**    |
+| 💬 **AI / Machine Learning / LLM**          | Intelligent automation, summarization, prediction, and natural language processing. | 5️⃣ LLM Context Connector<br>26️⃣ AI Pricing Advisor<br>51️⃣ AI Review Summarizer<br>60️⃣ AI Spec Writer<br>67️⃣ Customer Churn Analyzer<br>69️⃣ Sales Forecast Generator<br>80️⃣ Voice Call Summarizer<br>108️⃣ AI Alert Generator<br>101️⃣ LLM Tool Tester                       | **14**    |
+| 🏪 **Commerce / Pricing / Catalog**         | Product catalog, pricing, recommendations, lifecycle, and offers.                   | 2️⃣ Automated Pricing<br>6️⃣ Product Recommendations<br>8️⃣ Discount Tracker<br>14️⃣ Auto-Publish Products<br>20️⃣ Dynamic Banner Generator<br>42️⃣ Seasonal Offer Scheduler<br>49️⃣ Product Lifecycle Alerts<br>78️⃣ Elastic Pricing Rule Updater<br>85️⃣ Predictive Offer Engine | **13**    |
+| 🧠 **CRM / Customer Experience**            | Customer lifecycle, loyalty, onboarding, reminders, and segmentation.               | 15️⃣ Customer → Vehicle Mapping<br>16️⃣ Subscription Expiry Reminder<br>18️⃣ Feedback Loop<br>58️⃣ Loyalty Points Updater<br>84️⃣ Customer Onboarding Checklist<br>89️⃣ Warranty Expiration Monitor<br>36️⃣ Customer Segmentation Workflow                                         | **10**    |
+| ⚙️ **DevOps / Platform Engineering**        | Automation, versioning, scalability, backups, monitoring, CI/CD for MCP.            | 65️⃣ Cloud Migration Sync<br>77️⃣ Cloud Backup Verifier<br>94️⃣ Bulk Tool Executor<br>95️⃣ OpenAPI Schema Exporter<br>96️⃣ Kubernetes Scaler Trigger<br>100️⃣ Swagger Updater<br>106️⃣ Automated Version Control<br>110️⃣ Health Check Flow                                        | **12**    |
+| 📊 **Analytics / BI / Visualization**       | Dashboards, performance metrics, KPI scoring, reporting, and visualization.         | 34️⃣ Dealer KPI Dashboard<br>40️⃣ Dealer Performance Scorer<br>43️⃣ Stock Aging Report<br>81️⃣ Dealer Ranking Generator<br>88️⃣ AI Trend Reporter<br>103️⃣ Product Heatmap Dashboard<br>97️⃣ Dealer ROI Analyzer                                                                   | **9**     |
+| 🧾 **Finance / Accounting**                 | Pricing, tax, ROI, commissions, and financial operations.                           | 22️⃣ Finance Offer Evaluator<br>28️⃣ Tax Calculator<br>39️⃣ Invoice Composer<br>97️⃣ Dealer ROI Analyzer<br>107️⃣ Sales Commission Calculator                                                                                                                                      | **5**     |
+| 🚗 **Automotive / Vehicle Data**            | Vehicle, VIN, service history, and maintenance contexts.                            | 27️⃣ Vehicle Recall Notifier<br>38️⃣ VIN Lookup Service<br>48️⃣ Vehicle Service Scheduler<br>56️⃣ Service History Builder<br>61️⃣ Predictive Maintenance Notifier                                                                                                                  | **5**     |
+| 🏢 **Dealer / Partner Operations**          | Dealer onboarding, integration, performance, and communication.                     | 10️⃣ Dealer Integration Workflow<br>47️⃣ Dealer Onboarding Automation<br>81️⃣ Dealer Ranking Generator<br>90️⃣ Dealer Training Scheduler<br>104️⃣ Dealer Chatbot Integration                                                                                                       | **7**     |
+| 🧩 **Integration / Middleware**             | Event bridges, GraphQL gateways, multi-platform connectors.                         | 45️⃣ Webhook-to-API Bridge<br>62️⃣ Azure Event Hub Integration<br>99️⃣ GraphQL Gateway Builder<br>75️⃣ Context-Aware Workflow Router<br>86️⃣ EDI Integration                                                                                                                       | **7**     |
+| 🧱 **Compliance / Governance / Privacy**    | Data compliance, audit logs, recall, and anonymization.                             | 27️⃣ Vehicle Recall Notifier<br>63️⃣ Workflow Audit Logger<br>70️⃣ Regulatory Compliance Checker<br>73️⃣ Data Anonymization Flow<br>102️⃣ Audit Trail Generator                                                                                                                    | **6**     |
+| 🔐 **Monitoring / Health / Security**       | API health, latency, usage, and reliability.                                        | 13️⃣ Price-Change Notifier<br>76️⃣ API Latency Monitor<br>77️⃣ Backup Verifier<br>93️⃣ API Key Usage Monitor<br>110️⃣ MCP Health Check Flow                                                                                                                                        | **5**     |
+| 🤖 **IoT / Sensor Data**                    | IoT alerts, metrics, and energy consumption tracking.                               | 79️⃣ Energy Consumption Tracker<br>87️⃣ IoT Alert Processor<br>61️⃣ Predictive Maintenance Notifier                                                                                                                                                                                | **3**     |
+| 📦 **Supply Chain / Inventory / Parts**     | Inventory management, OEM parts, and logistics.                                     | 11️⃣ Inventory Auto-Sync<br>19️⃣ Parts Availability Checker<br>41️⃣ Geo-Based Dealer Routing<br>55️⃣ Parts Cross-Reference Tool<br>64️⃣ Parts Recommendation Engine                                                                                                                | **8**     |
+| 📈 **Marketing / Communication**            | Campaign automation, social media, promotions, and personalization.                 | 3️⃣ Slack Alerts<br>20️⃣ Banner Generator<br>24️⃣ Email Personalization<br>30️⃣ Social Media Poster<br>72️⃣ Coupon Distributor<br>85️⃣ Predictive Offer Engine                                                                                                                     | **8**     |
+| 📚 **Documentation / Knowledge Management** | Auto-generated docs, schemas, and content enrichment.                               | 9️⃣ Document Generation<br>60️⃣ AI Spec Writer<br>95️⃣ Schema Exporter<br>100️⃣ Swagger Updater                                                                                                                                                                                    | **4**     |
+| 📞 **Support / Service Operations**         | Returns, complaints, calls, and service scheduling.                                 | 32️⃣ Return Authorization<br>48️⃣ Service Scheduler<br>98️⃣ Complaint Classifier<br>80️⃣ Call Summarizer                                                                                                                                                                           | **4**     |
+
+
+### Category Summary Totals
+
+| Category                                | # of Use Cases |
+| --------------------------------------- | -------------- |
+| 🧩 Data Integration / DataOps           | **15**         |
+| 💬 AI / Machine Learning / LLM          | **14**         |
+| 🏪 Commerce / Pricing / Catalog         | **13**         |
+| 🧠 CRM / Customer Experience            | **10**         |
+| ⚙️ DevOps / Platform Engineering        | **12**         |
+| 📊 Analytics / BI / Visualization       | **9**          |
+| 🧾 Finance / Accounting                 | **5**          |
+| 🚗 Automotive / Vehicle Data            | **5**          |
+| 🏢 Dealer / Partner Operations          | **7**          |
+| 🧩 Integration / Middleware             | **7**          |
+| 🧱 Compliance / Governance / Privacy    | **6**          |
+| 🔐 Monitoring / Health / Security       | **5**          |
+| 🤖 IoT / Sensor Data                    | **3**          |
+| 📦 Supply Chain / Inventory / Parts     | **8**          |
+| 📈 Marketing / Communication            | **8**          |
+| 📚 Documentation / Knowledge Management | **4**          |
+| 📞 Support / Service Operations         | **4**          |
+
+
+### DealerMCP + n8n Use Case Index (1–110)
+
+| #   | Title                                           | Category                  | One-Line Summary                                                               |
+| --- | ----------------------------------------------- | ------------------------- | ------------------------------------------------------------------------------ |
+| 1   | Contextual Product Enrichment                   | Data Integration          | Enrich product records automatically with features, categories, and discounts. |
+| 2   | Automated Product Pricing & Discount Evaluation | Commerce                  | Compute and update final discounted prices dynamically.                        |
+| 3   | Slack / Teams Product Insight Alerts            | Communication             | Send real-time product updates to business teams.                              |
+| 4   | Product Analytics Pipeline                      | Data Ops                  | Stream MCP data into BI systems for analytics.                                 |
+| 5   | LLM / Chatbot Context Connector                 | AI Integration            | Feed MCP context into LLMs for intelligent responses.                          |
+| 6   | Workflow-Driven Product Recommendations         | Commerce / AI             | Recommend related products automatically.                                      |
+| 7   | Product Catalog QA & Validation                 | Quality / Data            | Validate product data and generate QA reports.                                 |
+| 8   | Discount Performance Tracker                    | Finance                   | Track and visualize discount impact over time.                                 |
+| 9   | Automated Product Document Generation           | Content Automation        | Generate PDF specs and promotional materials.                                  |
+| 10  | Dealer Integration Workflow                     | Multi-Dealer Ops          | Synchronize catalog data across multiple dealers.                              |
+| 11  | Inventory Auto-Sync                             | Inventory                 | Align MCP stock with warehouse data in real time.                              |
+| 12  | Vendor Feed Integration                         | Supply Chain              | Import supplier/OEM catalog feeds into MCP.                                    |
+| 13  | Price-Change Notifier                           | Monitoring                | Detect and alert major product price fluctuations.                             |
+| 14  | Auto-Publish New Products                       | E-Commerce                | Push new MCP products to online stores.                                        |
+| 15  | Customer → Vehicle Mapping                      | CRM                       | Maintain automatic mapping between customers and their vehicles.               |
+| 16  | Subscription Expiry Reminder                    | CRM / Retention           | Notify customers before service or plan expiry.                                |
+| 17  | Warranty Registration Workflow                  | Customer Service          | Auto-generate and send warranty documentation.                                 |
+| 18  | After-Sales Feedback Loop                       | Customer Insights         | Collect feedback and attach it to MCP context.                                 |
+| 19  | Parts Availability Checker                      | Supply Chain              | Check part availability via OEM APIs before ordering.                          |
+| 20  | Dynamic Banner Generator                        | Marketing Automation      | Auto-create ad banners using live MCP discounts.                               |
+| 21  | Promotion Approval Flow                         | Sales Ops                 | Route discount requests for manager approval.                                  |
+| 22  | Finance Offer Evaluator                         | Finance                   | Compute EMI and financing offers automatically.                                |
+| 23  | Lead Scoring Automation                         | Marketing / CRM           | Score and prioritize leads using MCP data.                                     |
+| 24  | Email Personalization Engine                    | Marketing Automation      | Personalize outbound emails using product context.                             |
+| 25  | Bulk Context Exporter                           | Data Ops                  | Export and back up context data nightly.                                       |
+| 26  | AI Pricing Advisor                              | AI / Pricing              | Suggest optimal product prices using AI.                                       |
+| 27  | Vehicle Recall Notifier                         | Compliance                | Identify and notify customers for recalls.                                     |
+| 28  | Regional Tax Calculator                         | Finance                   | Compute final prices including regional taxes.                                 |
+| 29  | Product Comparison Sheet                        | Sales Enablement          | Generate Excel-based product comparison reports.                               |
+| 30  | Social Media Auto-Poster                        | Marketing                 | Post discounted items to social media channels.                                |
+| 31  | Voice Assistant Integration                     | Conversational AI         | Query MCP data using Alexa or Google Assistant.                                |
+| 32  | Parts Return Authorization                      | Service Ops               | Automate return approval and notifications.                                    |
+| 33  | Catalog Translation Pipeline                    | Localization              | Translate catalog data to multiple languages.                                  |
+| 34  | Dealer KPI Dashboard                            | Analytics                 | Visualize dealer sales and performance KPIs.                                   |
+| 35  | Fraudulent Order Detector                       | Risk & Compliance         | Detect abnormal order or discount patterns.                                    |
+| 36  | Customer Segmentation Workflow                  | Marketing / AI            | Group customers by spend and interest data.                                    |
+| 37  | Predictive Stock Replenishment                  | Inventory / AI            | Forecast and restock items automatically.                                      |
+| 38  | VIN Lookup Service                              | Vehicle Data              | Map VINs to vehicles using context resolution.                                 |
+| 39  | PDF Invoice Composer                            | Finance / Docs            | Auto-generate and email product invoices.                                      |
+| 40  | Dealer Performance Scorer                       | Analytics                 | Rank dealers based on MCP KPIs.                                                |
+| 41  | Geo-Based Dealer Routing                        | Location Intelligence     | Suggest nearest dealer with inventory.                                         |
+| 42  | Seasonal Offer Scheduler                        | Marketing                 | Activate/deactivate offers on set dates.                                       |
+| 43  | Stock Aging Report                              | Analytics                 | Report products with long shelf time.                                          |
+| 44  | Supplier Performance Tracker                    | Logistics                 | Evaluate supplier SLA and reliability.                                         |
+| 45  | Webhook-to-API Bridge                           | Integration               | Forward external events into MCP executions.                                   |
+| 46  | Order Fulfillment Checker                       | Logistics                 | Monitor shipping progress for orders.                                          |
+| 47  | Dealer Onboarding Automation                    | Admin Automation          | Automate new dealer registration and setup.                                    |
+| 48  | Vehicle Service Scheduler                       | Service Ops               | Schedule vehicle maintenance automatically.                                    |
+| 49  | Product Lifecycle Alerts                        | Product Ops               | Notify teams on upcoming product EOLs.                                         |
+| 50  | Data Backup and Sync                            | Data Ops                  | Perform automated MCP backups to cloud.                                        |
+| 51  | AI Review Summarizer                            | AI / Insights             | Summarize customer reviews with context.                                       |
+| 52  | Delivery ETA Predictor                          | Logistics / AI            | Predict delivery times dynamically.                                            |
+| 53  | Multi-Language Chatbot Context                  | Conversational AI         | Serve localized MCP data to chatbots.                                          |
+| 54  | Stock Shortage Broadcast                        | Inventory                 | Alert dealers when stock runs low.                                             |
+| 55  | Parts Cross-Reference Tool                      | Supply Chain              | Map OEM and dealer part numbers.                                               |
+| 56  | Service History Builder                         | Vehicle Data              | Build chronological service history.                                           |
+| 57  | Insurance Quote Generator                       | Finance / CRM             | Generate instant insurance quotes.                                             |
+| 58  | Customer Loyalty Points Updater                 | CRM                       | Update loyalty points after transactions.                                      |
+| 59  | Product Metadata Normalizer                     | Data Quality              | Standardize supplier data attributes.                                          |
+| 60  | AI Spec Writer                                  | AI / Content              | Generate product descriptions using AI.                                        |
+| 61  | Predictive Maintenance Notifier                 | IoT / AI                  | Predict and alert service needs proactively.                                   |
+| 62  | Integration with Azure Event Hub                | Cloud Integration         | Stream MCP outputs to Azure for analytics.                                     |
+| 63  | Workflow Audit Logger                           | Compliance                | Log all tool executions for auditing.                                          |
+| 64  | Parts Recommendation Engine                     | AI / Commerce             | Suggest compatible parts automatically.                                        |
+| 65  | Cloud Migration Sync                            | DevOps                    | Move MCP datasets to cloud storage.                                            |
+| 66  | ElasticSearch Indexer                           | Search / Data Ops         | Index MCP data for full-text and fast lookup.                                  |
+| 67  | Customer Churn Analyzer                         | AI / CRM                  | Detect at-risk customers via subscriptions.                                    |
+| 68  | Email Failure Recovery                          | Operations                | Retry and log failed transactional emails.                                     |
+| 69  | Sales Forecast Generator                        | Analytics / AI            | Predict future sales from historical data.                                     |
+| 70  | Regulatory Compliance Checker                   | Compliance                | Verify products meet regional rules.                                           |
+| 71  | AI Image Tagger                                 | AI / Media                | Tag product images for SEO and search.                                         |
+| 72  | Coupon Code Distributor                         | Marketing Automation      | Generate and send coupons to customers.                                        |
+| 73  | Data Anonymization Flow                         | Privacy / Compliance      | Remove PII before exporting datasets.                                          |
+| 74  | Dealer Feedback Collector                       | Feedback / CRM            | Collect and analyze dealer feedback.                                           |
+| 75  | Context-Aware Workflow Router                   | Integration               | Route actions by entity type automatically.                                    |
+| 76  | API Latency Monitor                             | Monitoring                | Measure MCP tool response times.                                               |
+| 77  | Cloud Backup Verifier                           | DevOps                    | Verify integrity of nightly cloud backups.                                     |
+| 78  | Elastic Pricing Rule Updater                    | Pricing Automation        | Adjust pricing rules dynamically.                                              |
+| 79  | Energy Consumption Tracker                      | IoT / Analytics           | Aggregate IoT metrics with MCP context.                                        |
+| 80  | Voice Call Summarizer                           | AI / Support              | Summarize support calls using AI.                                              |
+| 81  | Dealer Ranking Generator                        | Analytics                 | Rank dealers based on KPIs.                                                    |
+| 82  | Product Recall Automation                       | Compliance                | Notify customers affected by recalls.                                          |
+| 83  | Image Quality Auditor                           | Media Ops                 | Detect low-quality catalog images.                                             |
+| 84  | Customer Onboarding Checklist                   | CRM / Ops                 | Auto-generate onboarding tasks.                                                |
+| 85  | Predictive Offer Engine                         | AI / Marketing            | Recommend personalized offers.                                                 |
+| 86  | EDI Integration                                 | ERP Integration           | Sync orders via standard EDI formats.                                          |
+| 87  | IoT Alert Processor                             | IoT                       | Process device alerts into MCP context.                                        |
+| 88  | AI Trend Reporter                               | AI / Analytics            | Summarize performance trends weekly.                                           |
+| 89  | Warranty Expiration Monitor                     | CRM                       | Remind customers of expiring warranties.                                       |
+| 90  | Dealer Training Scheduler                       | HR / Enablement           | Schedule and track dealer trainings.                                           |
+| 91  | Context Delta Tracker                           | Data Governance           | Detect changes between context snapshots.                                      |
+| 92  | Search Engine Feed Generator                    | Marketing                 | Build feeds for Google Merchant Center.                                        |
+| 93  | API Key Usage Monitor                           | Security / Monitoring     | Track and analyze API usage by key.                                            |
+| 94  | Bulk Tool Executor                              | DevOps / QA               | Test all MCP tools automatically.                                              |
+| 95  | OpenAPI Schema Exporter                         | DevOps / Docs             | Publish updated schemas to docs site.                                          |
+| 96  | Kubernetes Scaler Trigger                       | DevOps / Monitoring       | Scale MCP pods based on usage.                                                 |
+| 97  | Dealer ROI Analyzer                             | Finance / Analytics       | Compute ROI per dealer.                                                        |
+| 98  | Customer Complaint Classifier                   | AI / Support              | Classify and route customer complaints.                                        |
+| 99  | GraphQL Gateway Builder                         | Integration               | Expose MCP tools via GraphQL API.                                              |
+| 100 | Automated Swagger Updater                       | DevOps / Docs             | Refresh Swagger specs automatically.                                           |
+| 101 | LLM Tool Tester                                 | AI / QA                   | Validate AI function calls to MCP schemas.                                     |
+| 102 | Compliance Audit Trail Generator                | Compliance                | Generate execution audit logs.                                                 |
+| 103 | Product Heatmap Dashboard                       | Analytics / Visualization | Show high-activity product heatmaps.                                           |
+| 104 | Dealer Chatbot Integration                      | Conversational AI         | Give each dealer a contextual chatbot.                                         |
+| 105 | Predictive Demand Planner                       | AI / Inventory            | Forecast part demand per region.                                               |
+| 106 | Automated Version Control                       | DevOps                    | Snapshot MCP schema changes in Git.                                            |
+| 107 | Sales Commission Calculator                     | Finance                   | Automate dealer commission calculations.                                       |
+| 108 | AI Alert Generator                              | AI / Monitoring           | Detect anomalies in sales or discounts.                                        |
+| 109 | Context Graph Visualizer                        | Visualization             | Display entity relationships visually.                                         |
+| 110 | MCP Health Check Flow                           | Monitoring                | Check and report status of all MCP tools daily.                                |
+
 ### Workflow-Driven Product Recommendations - Additional N8N and DealerMCP Use Cases
 
 10 Real-World Use Cases: DealerMCP Server + n8n
@@ -688,3 +849,4 @@ It’s literally DealerMCP Orchestration-as-a-Service, powered by n8n’s low-co
 | **108️⃣ AI Alert Generator**               | Detect anomalies in discount or sales patterns.      | **1.** `/execute/catalog.aggregate` gets time-series data.<br>**2.** OpenAI/ML node identifies anomalies.<br>**3.** If abnormal → send alert.<br>**4.** Log in DealerMCP incident table.                                     | Early detection of unusual trends or data quality issues.  |         |
 | **109️⃣ Context Graph Visualizer**         | Display MCP entity relationships visually.           | **1.** `/execute/context.resolve` returns entity links.<br>**2.** Function node converts to graph JSON (nodes + edges).<br>**3.** Render in n8n dashboard or D3 webview.<br>**4.** Allow filtering by context type.          | Intuitive visualization of relationships inside MCP.       |         |
 | **110️⃣ MCP Health Check Flow**            | Monitor status of all MCP tools daily.               | **1.** Cron node fetches `/dealer-mcp/server/v1/tools` list.<br>**2.** Loop through each → `/execute/{tool}` with dummy input.<br>**3.** Record HTTP 200/500 counts.<br>**4.** Send summary to Slack/email.                  | Continuous MCP availability and reliability reporting.     |         |
+
