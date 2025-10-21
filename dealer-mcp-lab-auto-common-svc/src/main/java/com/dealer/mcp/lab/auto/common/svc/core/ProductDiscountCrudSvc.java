@@ -5,6 +5,6 @@ import com.dealer.mcp.lab.auto.common.dto.core.ProductDiscountCrudResp;
 import com.dealer.mcp.lab.auto.common.entity.rdbms.ProductDiscount;
 import com.dealer.mcp.lab.auto.common.svc.AppCrudSvc;
 
-public interface ProductDiscountSvc extends AppCrudSvc<ProductDiscount, ProductDiscountCrudReq, ProductDiscountCrudResp> {
+public interface ProductDiscountCrudSvc extends AppCrudSvc<ProductDiscount, ProductDiscountCrudReq, ProductDiscountCrudResp> {
 
 }

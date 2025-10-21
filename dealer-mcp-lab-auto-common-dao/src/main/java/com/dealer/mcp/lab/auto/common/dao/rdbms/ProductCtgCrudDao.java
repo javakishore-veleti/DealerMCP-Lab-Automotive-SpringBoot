@@ -4,5 +4,5 @@ import com.dealer.mcp.lab.auto.common.entity.rdbms.ProductCtg;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProductCtgDao extends AppCrudDao<ProductCtg> {
+public interface ProductCtgCrudDao extends AppCrudDao<ProductCtg> {
 }
