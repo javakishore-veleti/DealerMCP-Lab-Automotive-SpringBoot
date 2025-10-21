@@ -22,7 +22,7 @@ public class McpToolExecutionAspect {
             return joinPoint.proceed();
         } finally {
             stopWatch.stop();
-            log.info("Tool {} executed in {}} ms",
+            log.info("Tool {} executed in {} ms",
                     joinPoint.getSignature().toShortString(),
                     stopWatch.getTotalTimeMillis());
         }
