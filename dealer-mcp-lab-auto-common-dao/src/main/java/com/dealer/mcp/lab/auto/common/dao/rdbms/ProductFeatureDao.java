@@ -6,5 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProductFeatureDao extends ProductFeatureDaoCore<ProductFeature>, CrudRepository<ProductFeature, String> {
+public interface ProductFeatureDao extends AppCrudDao<ProductFeature> {
 }

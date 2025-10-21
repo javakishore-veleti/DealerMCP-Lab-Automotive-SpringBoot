@@ -6,5 +6,5 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class ProductCtgCrudResp extends AbstractCrudReq<ProductCtg> {
+public class ProductCtgCrudResp extends AbstractCrudResp<ProductCtg> {
 }

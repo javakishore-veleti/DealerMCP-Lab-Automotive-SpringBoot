@@ -2,16 +2,8 @@ package com.dealer.mcp.lab.auto.common.svc.core;
 
 import com.dealer.mcp.lab.auto.common.dto.core.ProductCrudReq;
 import com.dealer.mcp.lab.auto.common.dto.core.ProductCrudResp;
+import com.dealer.mcp.lab.auto.common.entity.rdbms.Product;
+import com.dealer.mcp.lab.auto.common.svc.AppCrudSvc;
 
-public interface ProductSvc {
-
-    void getProduct(ProductCrudReq crudReq, ProductCrudResp resp);
-
-    void createProduct(ProductCrudReq crudReq, ProductCrudResp resp);
-
-    void updateProduct(ProductCrudReq crudReq, ProductCrudResp resp);
-
-    void deleteProductById(ProductCrudReq crudReq, ProductCrudResp resp);
-
-    void getAllProducts(ProductCrudReq crudReq, ProductCrudResp resp);
+public interface ProductSvc extends AppCrudSvc<Product, ProductCrudReq, ProductCrudResp> {
 }

@@ -2,16 +2,9 @@ package com.dealer.mcp.lab.auto.common.svc.core;
 
 import com.dealer.mcp.lab.auto.common.dto.core.ProductDiscountCrudReq;
 import com.dealer.mcp.lab.auto.common.dto.core.ProductDiscountCrudResp;
+import com.dealer.mcp.lab.auto.common.entity.rdbms.ProductDiscount;
+import com.dealer.mcp.lab.auto.common.svc.AppCrudSvc;
 
-public interface ProductDiscountSvc {
+public interface ProductDiscountSvc extends AppCrudSvc<ProductDiscount, ProductDiscountCrudReq, ProductDiscountCrudResp> {
 
-    void getProductDiscount(ProductDiscountCrudReq crudReq, ProductDiscountCrudResp resp);
-
-    void createProductDiscount(ProductDiscountCrudReq crudReq, ProductDiscountCrudResp resp);
-
-    void updateProductDiscount(ProductDiscountCrudReq crudReq, ProductDiscountCrudResp resp);
-
-    void deleteProductDiscounttById(ProductDiscountCrudReq crudReq, ProductDiscountCrudResp resp);
-
-    void getAllProductDiscounts(ProductDiscountCrudReq crudReq, ProductDiscountCrudResp resp);
 }
