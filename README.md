@@ -950,3 +950,43 @@ Cron (n8n)
    → Slack Node → Notify sales team
 
 ```
+
+## Business-Valued Use Cases for DealerMCP
+
+Below are 25 real-world, high-ROI features you can build using your MCP implementation.
+
+Each one maps to a clear business outcome and a specific MCP context API you already have.
+
+| # | Feature | Business Value | MCP Context / Endpoint |
+|---|----------|----------------|------------------------|
+| **Dealer & Partner Enablement** ||||
+| 1 | Dealer 360° Dashboard | Unified dealer KPIs and compliance metrics in one view. | `/dealerContext.resolve` |
+| 2 | Automated Dealer Onboarding | Auto-populate dealer records from CRM + ERP to cut onboarding time. | `/dealerContext.build` |
+| 3 | Dealer Tier Optimization | Dynamic tiering and reward scoring for partner performance. | `/dealerContext.resolve` |
+| 4 | Dealer Health Score | Composite scoring across sales, service, and satisfaction. | `/dealerContext.resolve` |
+| 5 | Dealer CoPilot Chat Assistant | Natural-language dealer queries powered by LLM + MCP. | MCP + AI Integration |
+| **Product & Catalog Intelligence** ||||
+| 6 | Dynamic Product Context Builder | One endpoint for pricing, inventory, demand, and attributes. | `/productContext.resolve` |
+| 7 | Context-Driven Cross-Sell Engine | Recommend complementary products per dealer segment. | `/dealerContext + /productContext` |
+| 8 | Real-Time Product Enrichment | Fill missing product data from external sources automatically. | `/productContext.pipeline` |
+| 9 | Product Lifecycle Alerts | Auto-flag low-turnover or end-of-life products. | `/productContext.resolve` |
+| 10 | AI Product Advisor | Recommend best product fit for inquiries using full context. | MCP + AI Connector |
+| **Sales & Revenue Growth** ||||
+| 11 | Dynamic Quoting Engine | Auto-compute contextual quotes by tier, region, and margin. | `/pricingContext.resolve` |
+| 12 | Opportunity Prioritizer | Rank leads by probability using contextual metrics. | `/crmContext.resolve` |
+| 13 | Discount Eligibility Predictor | Suggest optimal discounts per dealer + inventory context. | `/dealerContext + /productContext` |
+| 14 | Dealer Margin Optimizer | Compute real margin per dealer factoring context data. | `/salesContext.resolve` |
+| 15 | Renewal Propensity Scoring | Predict dealer contract renewal likelihood. | `/dealerContext + /crmContext` |
+| **Operations & Support** ||||
+| 16 | Warranty Claim Validator | Auto-approve claims via eligibility context rules. | `/orderContext.resolve` |
+| 17 | Smart Spare-Parts Finder | Suggest compatible parts instantly. | `/productContext.resolve` |
+| 18 | Dealer Support Chatbot | Context-aware AI assistant for dealer tickets. | MCP + AI Integration |
+| 19 | Inventory Forecast Engine | Predict restock needs from sales + demand context. | `/inventoryContext.resolve` |
+| 20 | Automated Service Triggers | Auto-create service tasks post sale or issue detection. | `/orderContext.resolve` |
+| **Marketing & Engagement** ||||
+| 21 | Personalized Campaign Targeting | Segment dealers/customers via contextual data. | `/campaignContext.resolve` |
+| 22 | Next-Best-Offer Engine | Predict ideal offer for dealer/product combo. | `/dealerContext + /productContext` |
+| 23 | Feedback Intelligence | Aggregate reviews & satisfaction into context model. | `/customerContext.resolve` |
+| 24 | Event-Triggered Outreach | Notify dealers about relevant programs or shortages. | `/dealerContext + workflow` |
+| 25 | Partner Incentive Tracker | Track and visualize bonuses, rewards, and payouts. | `/dealerContext.resolve` |
+
