@@ -990,3 +990,21 @@ Each one maps to a clear business outcome and a specific MCP context API you alr
 | 24 | Event-Triggered Outreach | Notify dealers about relevant programs or shortages. | `/dealerContext + workflow` |
 | 25 | Partner Incentive Tracker | Track and visualize bonuses, rewards, and payouts. | `/dealerContext.resolve` |
 
+
+## Connect One “Consumer Layer”
+
+You need at least one consumer to make MCP valuable.  Pick any of these — depending on your immediate goal:
+
+Consumer Type	Benefit	How to Start:
+
+1. AI Assistant (ChatGPT / LangChain)	Context-aware Q&A	Connect your MCP as a “function tool” or MCP client
+2. Frontend App (React / Angular)	Context-rich dashboards	Fetch /api/v1/context/resolve and render data
+3. Workflow Automation (n8n, Zapier)	Auto-triggers for events	Use n8n HTTP node to call MCP
+4. Internal Microservices	Reuse computed context	Call MCP endpoint from pricing, CRM, etc.
+
+-  Start with one simple use case — for example:
+- “When a dealer opens a product page, the UI calls MCP → returns product + dealer + discount context → shows dynamic pricing.”
+
+## Build a Business Feature (Use Case)
+
+Pick any use case from your previous list (e.g. Dealer 360° Dashboard).
