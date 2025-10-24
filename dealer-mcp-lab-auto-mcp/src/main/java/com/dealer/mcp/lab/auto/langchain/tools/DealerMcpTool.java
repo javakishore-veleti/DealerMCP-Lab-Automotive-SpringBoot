@@ -36,4 +36,10 @@ Use this tool only when dealerId is known; otherwise, leave dealerId blank.
         JsonNode node = mcpClientService.recommendCrossSell(dealerId, productId);
         return node.toPrettyString();
     }
+
+    @Tool("Retrieve pricing information for a given product")
+    public String getPricing(String productId) {
+        System.out.printf("💰 DealerMcpTool.getPricing invoked (stub) with productId=%s%n", productId);
+        return "{ \"productId\": \"" + productId + "\", \"price\": \"$39,999\", \"currency\": \"USD\" }";
+    }
 }
