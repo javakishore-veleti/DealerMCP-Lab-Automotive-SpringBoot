@@ -1,0 +1,15 @@
+
+openai:
+  api-key: ${MY_OPENAPI_KEY:demo-key-placeholder}
+  model: gpt-4-turbo
+mcp:
+  server:
+    url: http://localhost:8085
+
+
+server:
+  port: 9080
+
+logging:
+  level:
+    io.netty.resolver.dns: WARN
